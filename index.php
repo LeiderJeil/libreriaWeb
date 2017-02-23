@@ -1,7 +1,7 @@
-<?php include('views/header.php'); ?>
+<?php include('views/plantillas/header.php'); ?>
     <div id="main">
 		<div class="ic"></div>
-    	<?php include('views/sidebar.php'); ?>
+    	<?php include('views/plantillas/sidebar.php'); ?>
     	<div id="right-part">
         	<h1>Headline</h1>
             <p><img src="img/image.jpg" alt="" width="251" height="196" class="right" />Lorem ipsum dolor sit amet, 
@@ -36,4 +36,4 @@
             <p><a href="#">This</a> is a link. </p>
         </div>
     </div>
-<?php include('views/footer.php'); ?>
+<?php include('views/plantillas/footer.php'); ?>
