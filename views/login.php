@@ -16,11 +16,8 @@
     
     <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script>
-        $('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
-    </script>
+    
+    
 </head>
 
 <body>
@@ -43,23 +40,24 @@
     <div id="main">
 		<div class="ic"></div>
 
-        <h1>Inicio de Session</h1>
+        <h1 style="text-align: center;">Inicio de Session</h1>
 
         <div class="login-page">
             <div class="form">
 
                 <form class="register-form">
-                 <input type="text" placeholder="name"/>
-                 <input type="password" placeholder="password"/>
-                 <input type="text" placeholder="email address"/>
-                 <button>create</button>
+                 <input type="text" placeholder="nombre"/>
+                 <input type="password" placeholder="apellido"/>
+                 <input type="text" placeholder="cuenta"/>
+                 <input type="text" placeholder="contraseña"/>
+                 <button>Registrar</button>
                  <p class="message">Ya estas registrado? <a href="#">Iniciar Session</a></p>
                 </form>
 
                 <form class="login-form">
                  <input type="text" placeholder="username"/>
                  <input type="password" placeholder="password"/>
-                 <button>login</button>
+                 <button>Login</button>
                  <p class="message">No estas registrado? <a href="#">Crear una cuenta</a></p>
                 </form>
              </div>
@@ -74,3 +72,10 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+    $('.message a').click(function(){
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+</script>
+
+
