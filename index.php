@@ -1,9 +1,60 @@
-<?php include('views/plantillas/header.php'); ?>
+
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="bred<" />
+    <meta name="keywords" content="bred<" />
+    <meta name="description" content="bred<" />
+    <meta name="robots" content="all" />
+    <title>Libreria Online</title>
+
+    <style type="text/css" title="currentStyle" media="screen">
+        @import "./css/global.css";
+    </style>
+    
+    <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src='/js/mod.js'></script>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="top">
+        <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
+        <ul id="topnavi">
+     
+            <li class="active"><a href="index.php">INICIO</a></li>
+            <li><a href="#">LIBROS</a></li>
+            <li><a href="views/login.php">LOGIN</a></li>
+
+        </ul>
+    </div>
+    <div id="header">
+        <img src="img/header.jpg" alt="" width="1000" height="183" />
+    </div>
+
     <div id="main">
 		<div class="ic"></div>
-    	<?php include('views/plantillas/sidebar.php'); ?>
+        <div id="left-part">
+            <h1>Category</h1>
+            <ul id="subnavi">
+                <li class="active"><a href="#">Submenu item</a></li>
+                <li><a href="#">Submenu item</a></li>
+                <li><a href="#">Submenu item</a></li>
+                <li><a href="#">Submenu item</a></li>
+                <li><a href="#">Submenu item</a></li>
+                <li><a href="#">Submenu item</a></li>
+            </ul>
+            
+            <h1>Additional content</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare elementum neque at lobortis. 
+            Fusce ac orci diam. Ut ac tellus in lorem commodo vulputate a vitae ligula. Proin nisl lectus, lacinia id 
+            egestas eu, hendrerit id purus.</p>
+        </div>
     	<div id="right-part">
-        	<h1>Headline</h1>
+        	<h1>Inicio</h1>
             <p><img src="img/image.jpg" alt="" width="251" height="196" class="right" />Lorem ipsum dolor sit amet, 
             consectetur adipiscing elit. Vestibulum ornare elementum neque at lobortis. 
             Fusce ac orci diam. Ut ac tellus in lorem commodo vulputate a vitae ligula. Proin nisl lectus, lacinia id 
@@ -36,4 +87,10 @@
             <p><a href="#">This</a> is a link. </p>
         </div>
     </div>
-<?php include('views/plantillas/footer.php'); ?>
+<div id="footer">
+        <p>© Copyright 2012 yourname.com. All Rights Reserved. Busque m&aacute;s plantillas web gratis <a href="http://www.mejoresplantillasgratis.es" target="_blank">en MPG.es</a>.<br/>
+        <span class="darkgrey">Design by <a href="http://www.prontomoda.de/" target="_blank" title="Handtaschen">Handtaschen</a></span></p>
+    </div>
+</div>
+</body>
+</html>
