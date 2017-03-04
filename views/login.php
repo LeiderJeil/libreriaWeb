@@ -45,12 +45,13 @@
         <div class="login-page">
             <div class="form">
 
-                <form class="register-form">
-                 <input type="text" placeholder="nombre"/>
-                 <input type="password" placeholder="apellido"/>
-                 <input type="text" placeholder="cuenta"/>
-                 <input type="text" placeholder="contraseña"/>
-                 <button>Registrar</button>
+                <form class="register-form" action="../controllers/usuariosController.php" method="post">
+                 <input type="text" name="nombre" placeholder="nombre"/>
+                 <input type="text" name="apellido" placeholder="apellido"/>
+                 <input type="text" name="cuenta" placeholder="cuenta"/>
+                 <input type="password" name="contraseña" placeholder="contraseña"/>
+                 <button type="submit" name="registrar">Registrar</button>
+                 
                  <p class="message">Ya estas registrado? <a href="#">Iniciar Session</a></p>
                 </form>
 
