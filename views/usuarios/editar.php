@@ -10,8 +10,9 @@
     <meta name="robots" content="all" />
     <title>Libreria Online</title>
     <style type="text/css" title="currentStyle" media="screen">
-        @import "../css/global.css";
-        @import "../css/login.css";
+        @import "../../css/global.css";
+        @import "../../css/login.css";
+      
     </style>
     
     <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
@@ -27,43 +28,44 @@
         <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
         <ul id="topnavi">
      
-            <li><a href="../index.php">INICIO</a></li>
+            <li><a href="../../index.php">INICIO</a></li>
             <li><a href="#">LIBROS</a></li>
             <li class="active"><a href="login.php">LOGIN</a></li>
 
         </ul>
     </div>
     <div id="header">
-        <img src="../img/header.jpg" alt="" width="1000" height="183" />
+        <img src="../../img/header.jpg" alt="" width="1000" height="183" />
     </div>
 
     <div id="main">
 		<div class="ic"></div>
 
-        <h1 style="text-align: center;">Inicio de Session</h1>
+        <h1 style="text-align: center;">Edicion de un Usuario</h1>
 
-        <div class="login-page">
-            <div class="form">
-
-                <form class="register-form" action="../controllers/usuariosController.php" method="post">
-                 <input type="text" name="nombre" placeholder="nombre"/>
-                 <input type="text" name="apellido" placeholder="apellido"/>
-                 <input type="text" name="cuenta" placeholder="cuenta"/>
-                 <input type="password" name="contraseña" placeholder="contraseña"/>
-                 <button type="submit" name="registrar">Registrar</button>
+            
+            <div class="login-page">
+                <div class="form">
                  
-                 <p class="message">Ya estas registrado? <a href="#">Iniciar Session</a></p>
-                </form>
+                <?php 
+                    include '../../controllers/usuariosController.php'; 
 
-                <form class="login-form" action="../controllers/autentificar.php">
-                 <input type="text" name="cuenta" placeholder="username"/>
-                 <input type="password" name="contrasenia" placeholder="password"/>
-                 <button type="submit" name="enviar">Login</button>
-                 <p class="message">No estas registrado? <a href="#">Crear una cuenta</a></p>
+                    $usuario = buscarUsuario($_REQUEST['id_usuario']);
+                ?>
+
+                <form action="../../controllers/usuariosController.php" method="post">
+                    
+                    <input type="text" name="nombre" placeholder="nombre" value="<?php echo $usuario['nombre'] ?>"><br/>            
+                    <input type="text" name="apellido" placeholder="apellido" value="<?php echo $usuario['apellido'] ?>"><br/>                   
+                    <input type="text" name="cuenta" placeholder="cuenta" value="<?php echo $usuario['cuenta'] ?>"><br/>                  
+                    <input type="text" name="contrasenia" placeholder="contrasenia" value="<?php echo $usuario['contrasenia'] ?>"><br/>
+
+                    <input type="hidden" name="id_usuario" value="<?php echo $_REQUEST['id_usuario'] ?>">
+                    <button type="submit" name="editar">Guardar cambios</button>
+
                 </form>
-             </div>
-        </div>
-  
+                </div>
+            </div>
 
     </div>
 <div id="footer">

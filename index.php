@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
@@ -21,6 +21,25 @@
 
 <body>
 <div id="wrapper">
+
+<?php if (isset($_SESSION['login_usr'])):?>
+
+
+    <div id="top">
+        <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
+        <ul id="topnavi">
+     
+            <li class="active"><a href="index.php">INICIO</a></li>
+            <li><a href="#">LIBROS</a></li>
+            <li><a href="#">MIS COMPRAS</a></li>
+            <li><a href="controllers/logout.php">LOGOUT</a></li>
+
+        </ul>
+    </div>
+    <h1>Usuario con cuenta</h1>
+
+<?php else: ?>
+
     <div id="top">
         <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
         <ul id="topnavi">
@@ -31,6 +50,10 @@
 
         </ul>
     </div>
+    <h1>Usuario sin cuenta</h1>
+
+<?php endif?>
+
     <div id="header">
         <img src="img/header.jpg" alt="" width="1000" height="183" />
     </div>

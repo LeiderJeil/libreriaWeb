@@ -13,8 +13,8 @@
 		registrarUsuario($nombres, $apellidos, $cuenta, $contrasenia);
 
 	} elseif (isset($_REQUEST['editar'])) {
-		$nombres = $_REQUEST['nombres'];
-		$apellidos = $_REQUEST['apellidos'];
+		$nombres = $_REQUEST['nombre'];
+		$apellidos = $_REQUEST['apellido'];
 		$cuenta = $_REQUEST['cuenta'];
 		$contrasenia = $_REQUEST['contrasenia'];
 		$id_usuario = $_REQUEST['id_usuario'];
@@ -25,14 +25,13 @@
 
 	function listaUsuarios() {
 		global $conection;
-		$query_select = 'SELECT * FROM usuario';
+		$query_select = "SELECT id_usuario,nombre,apellido,cuenta,contrasenia FROM usuario ORDER BY id_usuario";
 
-		$res_query_select = pg_query($conection, $query_select)or 
-			die('Revise su consulta SELECT');
+		$res_query_select = pg_query($conection, $query_select)or die('Revise su consulta SELECT');
 		pg_close($conection);
 
 		for($i = 0; $i < pg_num_rows($res_query_select); $i++) {
-		    $lista[$i] =  pg_fetch_array($res_query_select, MYSQLI_ASSOC);
+		    $lista[$i] =  pg_fetch_array($res_query_select,NULL, PGSQL_ASSOC);
 		}
 
 		return $lista;
@@ -46,27 +45,27 @@
 		$res=pg_query($conection, $query_insert) or die('Revise su consulta de insercion');
 		$rrr=pg_fetch_result($res,0);
 		pg_close($conection);
-		echo $rrr;
-	    //echo "<script language='javascript'>window.location='../views/usuarios/listado.php'</script>";
+		
+	    echo "<script language='javascript'>window.location='../views/usuarios/listado.php'</script>";
 	}
 
 	function buscarUsuario($id_usuario) {
 		global $conection;
-		$query = "SELECT * FROM usuarios WHERE id=$id_usuario";
+		$query = "SELECT * FROM usuario WHERE id_usuario=$id_usuario";
 
 		$res_query = pg_query($conection, $query) or die('Revise su consulta de busqueda');
 		pg_close($conection);
 
-		return pg_fetch_array($res_query, MYSQLI_ASSOC);
+		return pg_fetch_array($res_query,null, PGSQL_ASSOC);
 	}
 
 	function actualizarUsuario($id, $nombres, $apellidos, $cuenta, $contrasenia) {
 		global $conection;
 
-		$query_update = "UPDATE usuarios 
-						 SET nombres = '$nombres', apellidos = '$apellidos', cuenta = '$cuenta', 
+		$query_update = "UPDATE usuario
+						 SET nombre = '$nombres', apellido = '$apellidos', cuenta = '$cuenta', 
 						     contrasenia = '$contrasenia'
-        				 WHERE id=$id";
+        				 WHERE id_usuario=$id";
 
 		pg_query($conection, $query_update) or die('Revise su consulta de actualizacion');
 		pg_close($conection);
