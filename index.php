@@ -24,19 +24,40 @@
 
 <?php if (isset($_SESSION['login_usr'])):?>
 
-
-    <div id="top">
-        <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
-        <ul id="topnavi">
+    <?php if ($_SESSION['login_usr_id']==2):?>
+        <div id="top">
+            <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
+             <ul id="topnavi">
      
-            <li class="active"><a href="index.php">INICIO</a></li>
-            <li><a href="#">LIBROS</a></li>
-            <li><a href="#">MIS COMPRAS</a></li>
-            <li><a href="controllers/logout.php">LOGOUT</a></li>
+                <li class="active"><a href="index.php">INICIO</a></li>
+                <li><a href="#">LIBROS</a></li>
+                <li><a href="#">MIS COMPRAS</a></li>
+                <li><a href="controllers/logout.php">LOGOUT</a></li>
 
-        </ul>
-    </div>
-    <h1>Usuario con cuenta</h1>
+            </ul>
+        </div>
+        <h1>Usuario Normal</h1>
+    <h2><?php echo $_SESSION['login_usr']; ?></h2>
+
+    <?php else: ?>
+        <div id="top">
+            <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
+             <ul id="topnavi">
+     
+                <li class="active"><a href="index.php">INICIO</a></li>
+                <li><a href="#">LIBROS</a></li>
+                <li><a href="#">COMPRAS</a></li>
+                <li><a href="views/usuarios/listado.php">USUARIOS</a></li>
+                <li><a href="controllers/logout.php">LOGOUT</a></li>
+
+            </ul>
+        </div>
+        <h1>Administrador</h1>
+        <h2><?php echo $_SESSION['login_usr']; ?></h2>
+    <?php endif?>
+
+    
+  
 
 <?php else: ?>
 

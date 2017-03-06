@@ -28,9 +28,11 @@
         <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
         <ul id="topnavi">
      
-            <li><a href="../../index.php">INICIO</a></li>
-            <li><a href="#">LIBROS</a></li>
-            <li class="active"><a href="login.php">LOGIN</a></li>
+                <li><a href="../../index.php">INICIO</a></li>
+                <li><a href="#">LIBROS</a></li>
+                <li><a href="#">COMPRAS</a></li>
+                <li class="active"><a href="listado.php">USUARIOS</a></li>
+                <li><a href="../../controllers/logout.php">LOGOUT</a></li>
 
         </ul>
     </div>

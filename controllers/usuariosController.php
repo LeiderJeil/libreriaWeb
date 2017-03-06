@@ -25,7 +25,7 @@
 
 	function listaUsuarios() {
 		global $conection;
-		$query_select = "SELECT id_usuario,nombre,apellido,cuenta,contrasenia FROM usuario ORDER BY id_usuario";
+		$query_select = "SELECT id_usuario,nombre,apellido,cuenta,contrasenia FROM usuario WHERE id_tipo_usuario!=1 ORDER BY id_usuario";
 
 		$res_query_select = pg_query($conection, $query_select)or die('Revise su consulta SELECT');
 		pg_close($conection);

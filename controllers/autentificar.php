@@ -20,6 +20,8 @@
 
 		if ($nfilas==1) {
 			$_SESSION['login_usr']=$usuario['nombre'];
+			$_SESSION['login_usr_id']=$usuario['id_tipo_usuario'];
+
 		}
 
 		if (isset($_SESSION['login_usr'])) {
