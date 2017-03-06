@@ -45,8 +45,18 @@
 		$res=pg_query($conection, $query_insert) or die('Revise su consulta de insercion');
 		$rrr=pg_fetch_result($res,0);
 		pg_close($conection);
+
+		if ($rrr=="registrado") {
+			echo "<script language='javascript'>window.location='../views/usuarios/listado.php'</script>";
+			
+		} else {
+			echo "<script language='javascript'>alert('Error: La cuenta ya esta registrada por otro usuario');</script>";
+			echo "<script language='javascript'>window.location='../views/login.php'</script>";
+
+		}
+
 		
-	    echo "<script language='javascript'>window.location='../views/usuarios/listado.php'</script>";
+	    
 	}
 
 	function buscarUsuario($id_usuario) {
@@ -62,15 +72,22 @@
 	function actualizarUsuario($id, $nombres, $apellidos, $cuenta, $contrasenia) {
 		global $conection;
 
-		$query_update = "UPDATE usuario
-						 SET nombre = '$nombres', apellido = '$apellidos', cuenta = '$cuenta', 
-						     contrasenia = '$contrasenia'
-        				 WHERE id_usuario=$id";
+		$query_update="SELECT actualizarUsuario($id,'$nombres','$apellidos','$cuenta','$contrasenia')";
 
-		pg_query($conection, $query_update) or die('Revise su consulta de actualizacion');
+		$res=pg_query($conection, $query_update) or die('Revise su consulta de actualizacion');
+		$result=$rrr=pg_fetch_result($res,0);
 		pg_close($conection);
 
+		if ($result=="Actualizado") {
+			echo "<script language='javascript'>alert('Correcto: Datos actualizados correctamente')</script>";
+			
+		} else {
+			echo "<script language='javascript'>alert('Error: La cuenta ya esta registrada por otro usuario');</script>";
+	
+
+		}
 		echo "<script language='javascript'>window.location='../views/usuarios/listado.php'</script>";
+		
 	}
 
 ?>

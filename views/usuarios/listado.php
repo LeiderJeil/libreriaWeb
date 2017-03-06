@@ -71,7 +71,7 @@
                         <td><?php echo $usuario['contrasenia'] ?></td>
                         <td>
                             <a href="editar.php?id_usuario=<?php echo $usuario['id_usuario'] ?>"">Editar</a> |
-                            <a href="../../controllers/eliminarUsuario.php?id_usuario_eliminar=<?php echo $usuario['id_usuario'] ?>"">Eliminar</a> |
+                            <a href="../../controllers/eliminarUsuario.php?id_usuario_eliminar=<?php echo $usuario['id_usuario'] ?>" onclick="if(confirm('¿Desea borrar este registro?') === false) {return false;}">Eliminar</a> |
                         </td>
                      </tr>
                     <?php endforeach ?>
