@@ -29,7 +29,7 @@
      
                 <li><a href="../../index.php">INICIO</a></li>
                 <li><a href="#">LIBROS</a></li>
-                <li><a href="#">COMPRAS</a></li>
+                <li><a href="#">VENTAS</a></li>
                 <li class="active"><a href="listado.php">USUARIOS</a></li>
                 <li><a href="../../controllers/logout.php">LOGOUT</a></li>
 
@@ -83,7 +83,7 @@
 
 
         
-  
+        <p class="message" align="center">Desea registrar un nuevo usuario? <a href="registrar.php">Registrar Usuario</a></p>
 
     </div>
 <div id="footer">

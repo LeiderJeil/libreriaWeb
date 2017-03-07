@@ -27,43 +27,34 @@
     <div id="top">
         <h1 class="logo"><span class="green1">LIBRERIA</span> WEB</h1>
         <ul id="topnavi">
-     
-                <li><a href="../../index.php">INICIO</a></li>
-                <li><a href="#">LIBROS</a></li>
+                <li><a href="index.php">INICIO</a></li>
+                <li class="active"><a href="#">LIBROS</a></li>
                 <li><a href="#">VENTAS</a></li>
-                <li class="active"><a href="listado.php">USUARIOS</a></li>
+                <li><a href="../usuarios/listado.php">USUARIOS</a></li>
                 <li><a href="../../controllers/logout.php">LOGOUT</a></li>
 
-        </ul>
-    </div>
+            </ul>
+        </div>
+
     <div id="header">
         <img src="../../img/header.jpg" alt="" width="1000" height="183" />
     </div>
 
     <div id="main">
-		<div class="ic"></div>
+        <div class="ic"></div>
 
-        <h1 style="text-align: center;">Edicion de un Usuario</h1>
+        <h1 style="text-align: center;">Registrar Autor</h1>
 
             
             <div class="login-page">
                 <div class="form">
                  
-                <?php 
-                    include '../../controllers/usuariosController.php'; 
+               
 
-                    $usuario = buscarUsuario($_REQUEST['id_usuario']);
-                ?>
-
-                <form action="../../controllers/usuariosController.php" method="post">
+                <form action="../../controllers/autorController.php" method="post">
                     
-                    <input type="text" name="nombre" placeholder="nombre" value="<?php echo $usuario['nombre'] ?>"><br/>            
-                    <input type="text" name="apellido" placeholder="apellido" value="<?php echo $usuario['apellido'] ?>"><br/>                   
-                    <input type="text" name="cuenta" placeholder="cuenta" value="<?php echo $usuario['cuenta'] ?>"><br/>                  
-                    <input type="text" name="contrasenia" placeholder="contrasenia" value="<?php echo $usuario['contrasenia'] ?>"><br/>
-
-                    <input type="hidden" name="id_usuario" value="<?php echo $_REQUEST['id_usuario'] ?>">
-                    <button type="submit" name="editar">Guardar Cambios</button>
+                    <input type="text" name="nombre" placeholder="nombre autor"><br/>            
+                    <button type="submit" name="registrar">Registrar</button>
 
                 </form>
                 </div>
@@ -71,7 +62,7 @@
 
     </div>
 <div id="footer">
-        <p>© Copyright 2012 yourname.com. All Rights Reserved. Busque m&aacute;s plantillas web gratis <a href="http://www.mejoresplantillasgratis.es" target="_blank">en MPG.es</a>.<br/>
+        <p>© Copyright 2017 l.ticlla@clasesumss.com. All Rights Reserved. Busque m&aacute;s plantillas web gratis <a href="http://www.mejoresplantillasgratis.es" target="_blank">en MPG.es</a>.<br/>
         <span class="darkgrey">Design by <a href="http://www.prontomoda.de/" target="_blank" title="Handtaschen">Handtaschen</a></span></p>
     </div>
 </div>
@@ -82,5 +73,3 @@
         $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
         });
 </script>
-
-

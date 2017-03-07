@@ -50,19 +50,17 @@
                 <div class="form">
                  
                 <?php 
-                    include '../../controllers/usuariosController.php'; 
+                    include '../../controllers/autorController.php'; 
 
-                    $usuario = buscarUsuario($_REQUEST['id_usuario']);
+                    $autor = buscarAutor($_REQUEST['id_autor']);
                 ?>
 
-                <form action="../../controllers/usuariosController.php" method="post">
+                <form action="../../controllers/autorController.php" method="post">
                     
-                    <input type="text" name="nombre" placeholder="nombre" value="<?php echo $usuario['nombre'] ?>"><br/>            
-                    <input type="text" name="apellido" placeholder="apellido" value="<?php echo $usuario['apellido'] ?>"><br/>                   
-                    <input type="text" name="cuenta" placeholder="cuenta" value="<?php echo $usuario['cuenta'] ?>"><br/>                  
-                    <input type="text" name="contrasenia" placeholder="contrasenia" value="<?php echo $usuario['contrasenia'] ?>"><br/>
+                    <input type="text" name="nombre" placeholder="nombre autor" value="<?php echo $autor['nombre_autor'] ?>"><br/>            
 
-                    <input type="hidden" name="id_usuario" value="<?php echo $_REQUEST['id_usuario'] ?>">
+
+                    <input type="hidden" name="id_autor" value="<?php echo $_REQUEST['id_autor'] ?>">
                     <button type="submit" name="editar">Guardar Cambios</button>
 
                 </form>

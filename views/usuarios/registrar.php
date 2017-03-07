@@ -41,31 +41,24 @@
     </div>
 
     <div id="main">
-		<div class="ic"></div>
+        <div class="ic"></div>
 
         <h1 style="text-align: center;">Edicion de un Usuario</h1>
 
             
             <div class="login-page">
                 <div class="form">
+
+                <form class="register-form" action="../../controllers/usuariosController.php" method="post">
+                 <input type="text" name="nombre" placeholder="nombre"/>
+                 <input type="text" name="apellido" placeholder="apellido"/>
+                 <input type="text" name="cuenta" placeholder="cuenta"/>
+                 <input type="password" name="contraseña" placeholder="contraseña"/>
+                 <button type="submit" name="registrar">Registrar</button>
                  
-                <?php 
-                    include '../../controllers/usuariosController.php'; 
-
-                    $usuario = buscarUsuario($_REQUEST['id_usuario']);
-                ?>
-
-                <form action="../../controllers/usuariosController.php" method="post">
-                    
-                    <input type="text" name="nombre" placeholder="nombre" value="<?php echo $usuario['nombre'] ?>"><br/>            
-                    <input type="text" name="apellido" placeholder="apellido" value="<?php echo $usuario['apellido'] ?>"><br/>                   
-                    <input type="text" name="cuenta" placeholder="cuenta" value="<?php echo $usuario['cuenta'] ?>"><br/>                  
-                    <input type="text" name="contrasenia" placeholder="contrasenia" value="<?php echo $usuario['contrasenia'] ?>"><br/>
-
-                    <input type="hidden" name="id_usuario" value="<?php echo $_REQUEST['id_usuario'] ?>">
-                    <button type="submit" name="editar">Guardar Cambios</button>
-
+                 <p class="message">Ya estas registrado? <a href="#">Iniciar Session</a></p>
                 </form>
+
                 </div>
             </div>
 

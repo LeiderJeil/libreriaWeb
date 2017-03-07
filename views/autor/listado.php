@@ -11,7 +11,6 @@
     <title>Libreria Online</title>
     <style type="text/css" title="currentStyle" media="screen">
         @import "../../css/global.css";
-        @import "../../css/login.css";
       
     </style>
     
@@ -43,31 +42,43 @@
     <div id="main">
 		<div class="ic"></div>
 
-        <h1 style="text-align: center;">Edicion de un Usuario</h1>
+        <h1 style="text-align: center;">Lista de Autores</h1>
 
-            
-            <div class="login-page">
-                <div class="form">
-                 
-                <?php 
-                    include '../../controllers/usuariosController.php'; 
+        <table border="2" align="center">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombres</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
 
-                    $usuario = buscarUsuario($_REQUEST['id_usuario']);
-                ?>
+                <tbody>
+                    <?php 
+                        include '../../controllers/autorController.php'; 
 
-                <form action="../../controllers/usuariosController.php" method="post">
+                        $autores = listaAutor();
+
+                        foreach ($autores as $autor): 
+                    ?>
                     
-                    <input type="text" name="nombre" placeholder="nombre" value="<?php echo $usuario['nombre'] ?>"><br/>            
-                    <input type="text" name="apellido" placeholder="apellido" value="<?php echo $usuario['apellido'] ?>"><br/>                   
-                    <input type="text" name="cuenta" placeholder="cuenta" value="<?php echo $usuario['cuenta'] ?>"><br/>                  
-                    <input type="text" name="contrasenia" placeholder="contrasenia" value="<?php echo $usuario['contrasenia'] ?>"><br/>
+                    <tr>
+                        <td><?php echo $autor['id_autor'] ?></td>
+                        <td><?php echo $autor['nombre_autor'] ?></td>
+                       
+                        <td>
+                            <a href="editar.php?id_autor=<?php echo $autor['id_autor'] ?>"">Editar</a> |
+                            <a href="../../controllers/eliminarAutor.php?id_autor_eliminar=<?php echo $autor['id_autor'] ?>" onclick="if(confirm('¿Desea borrar este registro?') === false) {return false;}">Eliminar</a> |
+                        </td>
+                     </tr>
+                    <?php endforeach ?>
 
-                    <input type="hidden" name="id_usuario" value="<?php echo $_REQUEST['id_usuario'] ?>">
-                    <button type="submit" name="editar">Guardar Cambios</button>
+                </tbody>
+            </table>
 
-                </form>
-                </div>
-            </div>
+
+        
+        <p class="message" align="center">Desea registrar un nuevo Autor? <a href="registrar.php">Registrar Autor</a></p>
 
     </div>
 <div id="footer">
